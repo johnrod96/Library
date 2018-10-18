@@ -1,0 +1,37 @@
+<div class="animated fadeIn rcorners4">
+    <div class="row">
+        <div class="col-xs-12" style="margin: 20px" align="center">
+          <img 
+            [src]="result.imagePath"
+            alt="{{ result.name }}"
+            class="img-responsive"
+            style="max-height: 300px; max-width: 300px;">
+        </div>
+      </div>
+      <div class="row" >
+        <div class="col-xs-12">
+          <div class="form-group">
+              <h1 style="color: white; margin: 20px" align="center">{{ result.name }}</h1>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="form-group">
+            <div class="col-xs-12">
+              <h4 style="color: white; margin: 20px" align="center">Game Description: </h4>
+              <div style="color: white; margin: 20px" align="center">
+                  {{ result.summary }}
+              </div>               
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <div class="col-xs-12">
+            <h4 *ngIf="result.rating > 0" style="color: white; margin: 20px" align="center">Review Details: {{ result.rating }} /100</h4>
+            <button class="btn btn-success pull-right" style="margin: 15px" (click)="onAddtoLibrary()" [disabled]="!isAllowed()">Add to Library</button>
+          </div>
+        </div>
+      </div>      
+</div>

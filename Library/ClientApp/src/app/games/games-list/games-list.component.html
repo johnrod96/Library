@@ -1,0 +1,19 @@
+<div class="row">
+  <button *ngIf="authService.isAuthenticated()" class="button-review animated bounceInLeft" style="margin-bottom: 5px;" [disabled]="!isAllowed()" (click)="onNewGame()">Add New Game</button>
+</div>
+<div class="row">
+      <ng2-completer [(ngModel)]="searchStr" [datasource]="typeaheadService" [minSearchLength]="2" [clearSelected]="true"
+                     [inputClass]="['form-control input-md']" [placeholder]="placeholder" [autofocus]="false" [fillHighlighted]="false"
+                     (selected)="viewGame($event)" style="opacity: 0.7; overflow: visible;">
+      </ng2-completer>
+  <div style="overflow: auto; max-height: 600px; margin-top: 20px;">
+    <ul class="animated fadeInDown">
+      <li *ngFor="let game of games; let i=index;">
+        <app-game-item class="animated fadeInLeft" 
+                       [game]="game" 
+                       [index]="i">
+        </app-game-item>
+      </li>
+    </ul>
+  </div>
+</div>

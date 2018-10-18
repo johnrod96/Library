@@ -1,0 +1,14 @@
+<a
+  style="cursor: pointer;background-color: gray; opacity: 0.8; margin: 5px;"
+  routerLinkActive="active" 
+  [routerLink] = "[index]"
+  class="list-group-item clearfix animated bounceInUp rcorners4">
+  <div>
+    <h4 class="list-group-item-heading" style="color:white; opacity: 1;">{{ upcomingGame.title }} ({{ upcomingGame.platform }})</h4>
+    <!-- <p class="list-group-item-text" style="color:white; opacity: 1;">{{ upcomingGame.description }} </p> -->
+    <h4 *ngIf="diff>0" style="color:white; opacity: 1;">Release Date: {{ upcomingGame.dateReleaseMonth }}/{{ upcomingGame.dateReleaseDay }}/{{ upcomingGame.dateReleaseYear }}</h4>    
+    <h5 style="color: red;" *ngIf="diff>0">Days left: {{ diff }}</h5>
+    <h5 style="color: red;" *ngIf="!(diff>0) && isAnnouncedRelease()">Released</h5>
+    <h5 style="color: red;" *ngIf="!isAnnouncedRelease()">Release Date Unannounced</h5>
+  </div>
+</a>

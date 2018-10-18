@@ -1,0 +1,17 @@
+<div class="animated fadeIn">
+    <a
+    style="cursor: pointer;"
+    [routerLink] = "[index]"
+    class="list-group-item clearfix rcorners4">
+    <div class="pull-left">
+      <h4 class="list-group-item-heading" style="color: white;">{{ result.name }}</h4>
+    </div>
+    <span class="pull-right">
+      <img 
+        [src]="result.imagePath" 
+        alt="result.name"
+        class="img-responsive"
+        style="max-height: 40px; max-width: 30px;">
+    </span>
+  </a>
+</div>

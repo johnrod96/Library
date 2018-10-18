@@ -1,0 +1,47 @@
+<div class="animated lightSpeedIn rcorners4">
+    <div class="row">
+        <div class="col-xs-12" align="center">
+          <img 
+            [src]="upcomingGame.imagePath"
+            alt="{{ upcomingGame.title }}"
+            class="img-responsive"
+            style="max-height: 300px;">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+              <h1 style="color:white; opacity: 1;" align="center">{{ upcomingGame.title }}</h1>
+              <h3 style="color:white; opacity: 1;" align="center">({{ upcomingGame.platform }})</h3>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="form-group">
+            <div class="col-xs-12" style="margin: 10px;">
+              <h4 style="color:white; opacity: 1;">Game Description: </h4>
+              <div style="color:white; opacity: 1;">
+                  {{ upcomingGame.description }}
+              </div> 
+            </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-xs-12" style="margin: 10px;">
+          <div class="form-group">
+            <h4 style="color: white;">Release Date:</h4>
+            <h4 *ngIf="diff>0" style="color:white; opacity: 1;">{{ upcomingGame.dateReleaseMonth }}/{{ upcomingGame.dateReleaseDay }}/{{ upcomingGame.dateReleaseYear }}</h4>
+            <h4 *ngIf="!(diff>0) && isAnnouncedRelease()" style="color:white; opacity: 1;">Released</h4>
+            <h4 *ngIf="!isAnnouncedRelease()" style="color:white; opacity: 1;">Unannounced</h4>
+            <h4 style="color: red;" *ngIf="diff>0">Days left: {{ diff }}</h4>
+            <div *ngIf="isAllowed()">
+              <button type="button" class="button-delete pull-right" style="margin: 3px" (click)="onDeleteGame()">Delete</button>
+              <button type="button" class="button-edit  pull-right" style="margin: 3px" (click)="onEditGame()">Edit</button>
+              <button type="button" class="button-review  pull-right" [disabled]="diff > 0 && upcomingGamesService.announcedRelease(id)" style="margin: 3px" (click)="onMoveToGames()">Move to My Library</button>  
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

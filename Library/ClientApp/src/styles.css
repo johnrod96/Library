@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+
+.button-delete {
+  background-color: rgb(90, 32, 32);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  color: white;
+}
+
+.button-edit {
+  background-color: rgb(59, 76, 150);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  color: white;
+}
+
+.button-review {
+  background-color: rgb(88, 156, 114);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  color: white;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: grey; 
+    opacity: .3;
+    border-radius: 5px;
+    width: 1px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: black; 
+    opacity: .6;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: black; 
+}

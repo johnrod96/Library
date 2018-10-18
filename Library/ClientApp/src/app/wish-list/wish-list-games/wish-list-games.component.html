@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-xs-12">
+      <button *ngIf="isAllowed()" class="button-review animated bounceInLeft" style="margin-bottom: 5px;" [disabled]="!isAllowed()" (click)="onAddGame()">Add to Wishlist</button>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-wish-list-item
+        *ngFor="let upcomingGameEl of upcomingGames; let i=index"
+        [upcomingGame] = "upcomingGameEl"
+        [index] = "i"></app-wish-list-item>
+    </div>
+  </div>

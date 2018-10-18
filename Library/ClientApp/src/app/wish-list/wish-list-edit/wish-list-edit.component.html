@@ -1,0 +1,106 @@
+<div class="row rcorners4">
+    <div class="col-xs-12">
+      <form [formGroup]="upcomingGameForm" (ngSubmit)="onSubmit()" class="animated rollIn">        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="title" style="color:white; opacity: 1;">Game Title</label>
+              <input 
+                type="text"
+                id="title"
+                formControlName="title"
+                class="form-control" style="opacity: 0.8;">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="platform" style="color:white; opacity: 1;">Platform</label>
+                <input 
+                  type="text"
+                  id="platform"
+                  formControlName="platform"
+                  class="form-control" style="opacity: 0.8;">
+              </div>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="imagePath" style="color:white; opacity: 1;">Image URL</label>
+              <input 
+                type="text"
+                class="form-control" style="opacity: 0.8;"
+                id="imagePath"
+                formControlName="imagePath"
+                #imagePath>
+                <label for="imagePath" style="color:white; opacity: 1;">Image</label>
+                <input 
+                type="file" 
+                class="form-control"  style="opacity: 0.8;"
+                (change)="onFileChange($event)">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12" align="center">
+            <img [src]="imagePath.value" class="img-responsive">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="description" style="color:white; opacity: 1;">Game Description:</label>
+              <textarea 
+                type="text"
+                id="description"
+                class="form-control"
+                formControlName="description" style="opacity: 0.8;"
+                rows="6"></textarea>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <h4 style="color:white; opacity: 1;">Release Date:</h4>
+        <td>
+            <div formGroupName="releaseDate">
+                <div class="form-group pull-left" style="margin: 5px; max-width: 90px;">
+                    <label for="month" style="color:white; opacity: 1;">Month</label>
+                      <input 
+                        type="number"
+                        class="form-control" style="opacity: 0.8;"
+                        id="month"
+                        formControlName="month">
+                </div>
+                <div class="form-group pull-left" style="margin: 5px; max-width: 90px;">
+                      <label for="day" style="color:white; opacity: 1;">Day</label>
+                        <input 
+                          type="number"
+                          class="form-control" style="opacity: 0.8;"
+                          id="day"
+                          formControlName="day">
+                </div>
+                <div class="form-group pull-left" style="margin: 5px; max-width: 90px;">
+                        <label for="year" style="color:white; opacity: 1;">Year</label>
+                          <input 
+                            type="number" 
+                            class="form-control" style="opacity: 0.8;"
+                            id="year"
+                            formControlName="year">
+                </div>   
+                <div class="row">
+                    <div class="col-xs-12">
+                      <button
+                        type="submit" 
+                        class="btn btn-success"
+                        [disabled]="!upcomingGameForm.valid"
+                        style="margin: 5px;" >Save</button>
+                      <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+                    </div>
+                  </div>
+            </div> 
+        </td>           
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,17 @@
+<a
+  style="cursor: pointer;"
+  [routerLink] = "[index]"
+  routerLinkActive="active" 
+  class="list-group-item clearfix animated bounceInUp rcorners4"
+  style="margin: 5px;">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading" style="color:white;">{{ game.title }} ({{ game.platform }})</h4>
+  </div>
+  <span class="pull-right">
+    <img 
+      [src]="game.imagePath" 
+      alt="game.title"
+      class="img-responsive"
+      style="max-height: 40px; max-width: 30px;">
+  </span>
+</a>

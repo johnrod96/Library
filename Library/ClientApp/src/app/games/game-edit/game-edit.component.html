@@ -1,0 +1,118 @@
+<div class="row rcorners4">
+  <div class="col-xs-12">
+    <form [formGroup]="gameForm" (ngSubmit)="onSubmit()" class="animated jackInTheBox">
+      <div class="row">
+        <div class="col-xs-12">
+          <button
+            type="submit" 
+            class="btn btn-success"
+            [disabled]="!gameForm.valid" style="margin: 5px">Save</button>
+          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="title" style="color:white; opacity: 1;">Game Title</label>
+            <input 
+              type="text"
+              id="gameTitle"
+              formControlName="title" style="opacity: 0.8;"
+              class="form-control">
+              <span
+                *ngIf="!gameForm.get('title').valid && gameForm.get('title').touched"
+                class="hlep-block">
+                <span *ngIf="gameForm.get('title').errors['required']">Please provide a title!</span>
+              </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="platform" style="color:white; opacity: 1;">Platform</label>
+              <input 
+                type="text"
+                id="gamePlatform"
+                formControlName="platform" style="opacity: 0.8;"
+                class="form-control">
+                <span
+                *ngIf="!gameForm.get('platform').valid && gameForm.get('platform').touched"
+                class="hlep-block">
+                <span *ngIf="gameForm.get('platform').errors['required']" style="color:white; opacity: 1;">Please provide a platform!</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath" style="color:white; opacity: 1;">Image URL</label>
+            <input 
+              type="text"
+              class="form-control"
+              formControlName="imagePath" style="opacity: 0.8;"
+              id="imagePath"
+              #imagePath>
+              <!-- <span
+                *ngIf="!gameForm.get('imagePath').valid && gameForm.get('imagePath').touched"
+                class="help-block">
+                <span *ngIf="gameForm.get('imagePath').errors['required']">Please provide an image URL!</span>
+              </span> -->
+              <label for="imagePath" style="color:white; opacity: 1;">Image</label>
+              <input 
+                type="file" 
+                class="form-control"  style="opacity: 0.8;"
+                (change)="onFileChange($event)">
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-xs-12">
+          <img [src]="url" class="img-responsive" style="max-height: 500px">
+        </div>
+      </div> -->
+      <div class="row">
+          <div class="col-xs-12" align="center">
+            <img [src]="imagePath.value" class="img-responsive" style="max-height: 500px">
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="description" style="color:white; opacity: 1;">Game Description</label>
+            <textarea 
+              type="text"
+              id="description"
+              class="form-control"
+              formControlName="description" style="opacity: 0.8;"
+              rows="6"></textarea>
+              <span
+                *ngIf="!gameForm.get('description').valid && gameForm.get('description').touched"
+                class="hlep-block">
+                <span *ngIf="gameForm.get('description').errors['required']" style="color:white; opacity: 1;">Please provide a description for the game!</span>
+              </span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="review" style="color:white; opacity: 1;">Review (Out of 100):</label>
+          <input 
+            type="number"
+            class="form-control"
+            style="max-width: 80px;"
+            formControlName="review" style="opacity: 0.8;"
+            id="review">
+      </div>
+      <div class="form-group">
+        <label for="reviewDetails" style="color:white; opacity: 1;">Review Details</label>
+          <textarea 
+            type="text"
+            id="reviewDetails"
+            class="form-control"
+            formControlName="reviewDetails" style="opacity: 0.8;"
+            rows="4" col="6"></textarea>
+      </div>
+    </form>
+  </div>
+</div>
